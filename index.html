@@ -1,0 +1,303 @@
+<!-- HTMLDOCS
+  Projet: Portfolio d'Alexandre Simoes
+  Description: Page unique (single page) structurée en sections sémantiques pour présenter
+  l'identité, compétences, expériences, études, loisirs (aviron), projets et contact.
+
+  Conventions:
+  - Sections identifiées par des IDs (hero, about, skills, experience, education, hobbies,
+    values, projects, contact, privacy). Ces IDs servent aux ancres de navigation.
+  - Les images sont placées dans /img, les icônes dans /svg, le CV dans /pdf.
+  - Accessibilité: utilisation d'attributs ARIA pour la navigation et la lightbox, texte
+    alternatif pour les images, focus management dans le JS.
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alexandre Simoes — Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- HTMLDOCS: Header
+  Contient le logo, la navigation principale et le bouton de téléchargement du CV.
+  La nav utilise des ancres vers les sections de la page et est accessible via aria-*.
+-->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="logo" aria-label="Accueil">
+        <img src="svg/logo.svg" alt="Logo Alexandre" width="48" height="48">
+        <span class="name"><strong>Alexandre</strong> Simoes</span>
+      </a>
+      <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Ouvrir le menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </button>
+      <nav id="main-nav" class="main-nav" role="navigation">
+        <ul>
+          <li><a href="#hero">Accueil</a></li>
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#skills">Compétences</a></li>
+          <li><a href="#experience">Expériences</a></li>
+          <li><a href="#education">Études</a></li>
+          <li><a href="#hobbies">Loisirs</a></li>
+          <li><a href="#projects">Projets</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-primary cv-btn" href="pdf/CV.pdf" target="_blank" rel="noopener">Télécharger CV</a>
+    </div>
+  </header>
+
+  <!-- HTMLDOCS: Contenu principal (main) -->
+  <main>
+    <!-- Hero: présentation courte + photo + actions -->
+    <section id="hero" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>Alexandre Simoes</h1>
+          <p class="lead">Passionné par le sport et le contact humain, j'ai choisi d'en faire un projet professionnel.</p>
+          <p class="role">Commercial | Licence 3 — Commercialisation de services et produits sportifs (ILEPS)</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="pdf/CV.pdf" target="_blank" rel="noopener">Voir mon CV</a>
+            <a class="btn btn-outline" href="#contact">Me contacter</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="img/Photo_ID.jpg" alt="Photo professionnelle d'Alexandre" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- About: présentation détaillée et contact rapide -->
+    <section id="about" class="section about">
+      <div class="container">
+        <h2>À propos</h2>
+        <div class="about-grid">
+          <div>
+            <p>Je m'appelle Alexandre Simoes, j'ai 19 ans et je suis actuellement en Licence 3 à l'ILEPS, spécialisé dans la commercialisation de services et produits sportifs. Mon parcours m'a amené à travailler en alternance chez Fitness Park Montmartre où j'occupe le poste de commercial.</p>
+            <p>Mon intérêt pour le sport, particulièrement l'aviron, m'a appris la rigueur, la persévérance et l'esprit d'équipe — des qualités que j'applique quotidiennement dans le monde professionnel.</p>
+          </div>
+          <div class="about-cards">
+            <div class="card">
+              <h3>Contact</h3>
+              <ul class="contact-list">
+                <li>Email: <a href="mailto:alexandre.simoes.2006@gmail.com">alexandre.simoes.2006@gmail.com</a></li>
+                <li>GitHub: <a href="https://github.com/AlexandreS78" target="_blank" rel="noopener">AlexandreS78</a></li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/in/alexandre-simoes-aab7ab274" target="_blank" rel="noopener">linkedin.com/in/alexandre-simoes-aab7ab274</a></li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h3>Alternance</h3>
+              <p><strong>Commercial — Fitness Park Montmartre</strong></p>
+              <p>Compétences développées : Vente, Relation client, Gestion, Communication, Organisation, Prospection, Événementiel, Marketing, Travail en équipe, Formation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compétences, expériences, études, loisirs, valeurs, projets, contact, mentions -->
+    <section id="skills" class="section skills">
+        <div class="container">
+            <h2>Compétences</h2>
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <h3>Compétences professionnelles</h3>
+                    <ul>
+                        <li>Vente & relation client</li>
+                        <li>Gestion & organisation</li>
+                        <li>Communication & marketing</li>
+                        <li>Prospection & événements</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3>Compétences techniques</h3>
+                    <ul>
+                        <li>Word, Excel, PowerPoint</li>
+                        <li>Canva</li>
+                        <li>Gestion des réseaux sociaux</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3>Qualités personnelles</h3>
+                    <ul>
+                        <li>Autonome, Fiable, Sociable, Généreux</li>
+                        <li>Leadership, Sens de l'organisation, Aisance relationnelle</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section experience">
+        <div class="container">
+            <h2>Expériences professionnelles</h2>
+            <div class="timeline">
+                <article class="timeline-item">
+                    <h3>Commercial — Fitness Park Montmartre</h3>
+                    <p>Missions principales : Mise en place du centre, démarchage client, accueil des membres,
+                        coordination d'événements, gestion de partenariats, animation et communication, création de
+                        supports marketing, gestion des réseaux sociaux, accompagnement et formation des nouveaux
+                        arrivants.</p>
+                </article>
+
+                <article class="timeline-item">
+                    <h3>Vendeur — PUMA Aubergenville</h3>
+                    <p>Missions : Accueil et conseil client, gestion des stocks, participation aux opérations marketing,
+                        surveillance et bon fonctionnement du point de vente.</p>
+                    <p>Compétences acquises : aisance à l'oral, sens du service, efficacité en équipe.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section education">
+        <div class="container">
+            <h2>Études</h2>
+            <div class="edu-grid">
+                <div class="edu-item">
+                    <h3>ILEPS — Licence 3</h3>
+                    <p>Domaine : Commercialisation de services et produits sportifs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hobbies" class="section hobbies">
+        <div class="container">
+            <h2>Loisirs</h2>
+            <div class="hobbies-grid">
+                <div>
+                    <h3>Sport : Aviron</h3>
+                    <p>Valeurs tirées du sport : Rigueur, Persévérance, Esprit d'équipe.</p>
+                    <p>Voici quelques photos prises en compétition et entraînement :</p>
+
+                    <div class="hobby-gallery" aria-label="Galerie d'aviron">
+                        <figure>
+                            <a href="img/Aviron_Competition_de_Meulan.jpeg" class="gallery-link"
+                               data-caption="Compétition de Meulan">
+                                <img src="img/Aviron_Competition_de_Meulan.jpeg" alt="Alexandre en compétition d'aviron"
+                                     loading="lazy">
+                            </a>
+                            <figcaption>Compétition de Meulan</figcaption>
+                        </figure>
+
+                        <figure>
+                            <a href="img/Aviron_Competition_des_Masses.jpeg" class="gallery-link"
+                               data-caption="Compétition des Masses">
+                                <img src="img/Aviron_Competition_des_Masses.jpeg"
+                                     alt="Alexandre sur l'eau lors d'une compétition" loading="lazy">
+                            </a>
+                            <figcaption>Compétition des Masses</figcaption>
+                        </figure>
+
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Autres intérêts</h3>
+                    <p>Jeux vidéo, jeux de société — compétences : concentration, stratégie, réflexion, analyse,
+                        partage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="values" class="section values">
+        <div class="container">
+            <h2>Valeurs et qualités</h2>
+            <ul class="values-list">
+                <li>Autonome</li>
+                <li>Fiable</li>
+                <li>Sociable</li>
+                <li>Généreux</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects" class="section projects">
+        <div class="container">
+            <h2>Projets et objectifs</h2>
+            <div class="projects-grid">
+                <div class="project">
+                    <h3>Objectif études</h3>
+                    <p>Poursuivre en Master dans le business development, le commerce et le management du sport.</p>
+                </div>
+                <div class="project">
+                    <h3>Objectif professionnel</h3>
+                    <p>Devenir un professionnel accompli dans la gestion et le développement d'entreprises
+                        sportives.</p>
+                </div>
+                <div class="project">
+                    <h3>Motivation</h3>
+                    <p>Mettre en avant mes compétences et continuer à progresser dans un environnement stimulant et
+                        ambitieux.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <div class="contact-grid">
+                <form id="contact-form" class="contact-form" action="" novalidate>
+                    <label for="name">Nom</label>
+                    <input id="name" name="name" type="text" required>
+
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" required>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                </form>
+
+                <div class="contact-info">
+                    <h3>Réseaux</h3>
+                    <ul class="social-list">
+                        <li><a href="mailto:alexandre.simoes.2006@gmail.com"><img src="svg/icon-mail.svg" alt="Email"
+                                                                                  width="20" height="20"> Email</a></li>
+                        <li><a href="https://github.com/AlexandreS78" target="_blank" rel="noopener"><img
+                                src="svg/icon-github.svg" alt="GitHub" width="20" height="20"> GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/alexandre-simoes-aab7ab274" target="_blank"
+                               rel="noopener"><img src="svg/icon-linkedin.svg" alt="LinkedIn" width="20" height="20">
+                            LinkedIn</a></li>
+                    </ul>
+
+                    <h3>Télécharger</h3>
+                    <p><a class="btn btn-outline" href="pdf/CV.pdf" target="_blank" rel="noopener">Télécharger mon CV
+                        (PDF)</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="privacy" class="section privacy">
+        <div class="container">
+            <h2>Mentions légales</h2>
+            <p>Site réalisé par Alexandre Simoes — Informations de contact disponibles dans la section Contact. Ce site
+                a pour vocation de présenter le parcours professionnel et les compétences.</p>
+        </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Alexandre Simoes — Tous droits réservés.</p>
+      <div class="footer-links">
+        <a href="#privacy">Mentions</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+</html>
