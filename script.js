@@ -42,7 +42,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
                 const headerOffset = document.querySelector('.site-header')?.offsetHeight || 80;
                 const rect = target.getBoundingClientRect();
                 const scrollTop = window.pageYOffset + rect.top - headerOffset - 12;
-                window.scrollTo({ top: scrollTop, behavior: 'smooth' });
+                window.scrollTo({top: scrollTop, behavior: 'smooth'});
                 if (window.innerWidth <= 900 && mainNav) {
                     mainNav.setAttribute('aria-hidden', 'true');
                     navToggle?.setAttribute('aria-expanded', 'false');
@@ -58,35 +58,35 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
  * - si l'élément est déjà visible, on applique immédiatement .revealed
  * - fallback: si IntersectionObserver indisponible, révèle tout
  */
-(function setupReveal(){
+(function setupReveal() {
     const els = Array.from(document.querySelectorAll('main .section, .hero, .header-inner'));
-    if(els.length === 0) return;
+    if (els.length === 0) return;
 
     const supportsIO = 'IntersectionObserver' in window;
     let io = null;
-    if(supportsIO){
+    if (supportsIO) {
         io = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if(entry.isIntersecting){
+                if (entry.isIntersecting) {
                     entry.target.classList.add('revealed');
                     io.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.12 });
+        }, {threshold: 0.12});
     }
 
     els.forEach(el => {
         const rect = el.getBoundingClientRect();
         const inView = rect.top < window.innerHeight && rect.bottom > 0;
-        if(inView){
+        if (inView) {
             el.classList.add('revealed');
         } else {
             el.classList.add('reveal');
-            if(io) io.observe(el);
+            if (io) io.observe(el);
         }
     });
 
-    if(!supportsIO){
+    if (!supportsIO) {
         els.forEach(el => el.classList.add('revealed'));
     }
 })();
@@ -131,28 +131,29 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
  * - ajoute la classe .scrolled lorsque la page est défilée
  * - met la classe .active sur le lien correspondant à la section visible
  */
-(function headerScrollAndActiveLink(){
+(function headerScrollAndActiveLink() {
     const header = document.querySelector('.site-header');
     const navLinks = Array.from(document.querySelectorAll('.main-nav a'));
     const sections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
     const headerOffset = 60;
 
-    function onScroll(){
+    function onScroll() {
         const y = window.scrollY || window.pageYOffset;
-        if(header){
-            if(y > headerOffset) header.classList.add('scrolled'); else header.classList.remove('scrolled');
+        if (header) {
+            if (y > headerOffset) header.classList.add('scrolled'); else header.classList.remove('scrolled');
         }
 
         let current = sections.find(sec => {
             const rect = sec.getBoundingClientRect();
             return rect.top <= (window.innerHeight * 0.25) && rect.bottom > (window.innerHeight * 0.15);
         });
-        if(!current){
-            current = sections.slice().reverse().find(sec=>sec.getBoundingClientRect().top <= window.innerHeight*0.6);
+        if (!current) {
+            current = sections.slice().reverse().find(sec => sec.getBoundingClientRect().top <= window.innerHeight * 0.6);
         }
-        navLinks.forEach(a=>a.classList.toggle('active', document.querySelector(a.getAttribute('href')) === current));
+        navLinks.forEach(a => a.classList.toggle('active', document.querySelector(a.getAttribute('href')) === current));
     }
-    window.addEventListener('scroll', onScroll, {passive:true});
+
+    window.addEventListener('scroll', onScroll, {passive: true});
     window.addEventListener('resize', onScroll);
     onScroll();
 })();
@@ -162,7 +163,7 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
  * - ouvre une modal accessible lors du clic sur une miniature
  * - gère le focus, la fermeture (bouton, clic hors image, touche Escape)
  */
-(function setupLightbox(){
+(function setupLightbox() {
     const galleryLinks = Array.from(document.querySelectorAll('.gallery-link'));
     const lightbox = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightbox-img');
@@ -170,28 +171,28 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const lbClose = document.querySelector('.lightbox-close');
     let lastFocused = null;
 
-    if(!lightbox || !lbImg) return;
+    if (!lightbox || !lbImg) return;
 
-    function openLightbox(href, caption, alt){
+    function openLightbox(href, caption, alt) {
         lastFocused = document.activeElement;
         lbImg.src = href;
         lbImg.alt = alt || caption || '';
         lbCaption.textContent = caption || '';
-        lightbox.setAttribute('aria-hidden','false');
+        lightbox.setAttribute('aria-hidden', 'false');
         lbClose.focus();
         document.body.style.overflow = 'hidden';
     }
 
-    function closeLightbox(){
-        lightbox.setAttribute('aria-hidden','true');
+    function closeLightbox() {
+        lightbox.setAttribute('aria-hidden', 'true');
         lbImg.src = '';
         lbCaption.textContent = '';
         document.body.style.overflow = '';
-        if(lastFocused) lastFocused.focus();
+        if (lastFocused) lastFocused.focus();
     }
 
-    galleryLinks.forEach(link=>{
-        link.addEventListener('click', (e)=>{
+    galleryLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
             e.preventDefault();
             const href = link.getAttribute('href');
             const caption = link.dataset.caption || '';
@@ -202,12 +203,12 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     });
 
     lbClose.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', (e)=>{
-        if(e.target === lightbox) closeLightbox();
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
     });
 
-    document.addEventListener('keydown', (e)=>{
-        if(e.key === 'Escape' && lightbox.getAttribute('aria-hidden') === 'false'){
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.getAttribute('aria-hidden') === 'false') {
             closeLightbox();
         }
     });

@@ -14,12 +14,12 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Alexandre Simoes — Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alexandre Simoes - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -27,78 +27,152 @@
   Contient le logo, la navigation principale et le bouton de téléchargement du CV.
   La nav utilise des ancres vers les sections de la page et est accessible via aria-*.
 -->
-  <header class="site-header">
+<header class="site-header">
     <div class="container header-inner">
-      <a href="#hero" class="logo" aria-label="Accueil">
-        <img src="svg/Pictogramme_aviron_JO_2024_blue_BG.svg" alt="Logo Alexandre" width="48" height="48">
-        <span class="name"><strong>Alexandre</strong> Simoes</span>
-      </a>
-      <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Ouvrir le menu">
-        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-      </button>
-      <nav id="main-nav" class="main-nav" role="navigation">
-        <ul>
-          <li><a href="#hero">Accueil</a></li>
-          <li><a href="#about">À propos</a></li>
-          <li><a href="#skills">Compétences</a></li>
-          <li><a href="#experience">Expériences</a></li>
-          <li><a href="#education">Études</a></li>
-          <li><a href="#hobbies">Loisirs</a></li>
-          <li><a href="#projects">Projets</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <a class="btn btn-primary cv-btn" href="pdf/CV.pdf" target="_blank" rel="noopener">Télécharger CV</a>
+        <a href="#hero" class="logo" aria-label="Accueil">
+            <img src="svg/Pictogramme_aviron_JO_2024_blue_BG.svg" alt="Logo Alexandre" width="48" height="48">
+            <span class="name"><strong>Alexandre</strong> Simoes</span>
+        </a>
+        <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Ouvrir le menu">
+            <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 6h18M3 12h18M3 18h18" stroke="#000" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" fill="none"/>
+            </svg>
+        </button>
+        <nav id="main-nav" class="main-nav" role="navigation">
+            <ul>
+                <li><a href="#hero">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#experience">Expériences</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#education">Études</a></li>
+                <li><a href="#hobbies">Loisirs</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <a class="btn btn-primary cv-btn" href="pdf/CV.pdf" target="_blank" rel="noopener">Télécharger CV</a>
     </div>
-  </header>
+</header>
 
-  <!-- HTMLDOCS: Contenu principal (main) -->
-  <main>
+<!-- HTMLDOCS: Contenu principal (main) -->
+<main>
     <!-- Hero: présentation courte + photo + actions -->
     <section id="hero" class="hero">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <h1>Alexandre Simoes</h1>
-          <p class="lead">Passionné par le sport et le contact humain, j'ai choisi d'en faire un projet professionnel.</p>
-          <p class="role">Commercial | Licence 3 — Commercialisation de services et produits sportifs (ILEPS)</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="pdf/CV.pdf" target="_blank" rel="noopener">Voir mon CV</a>
-            <a class="btn btn-outline" href="#contact">Me contacter</a>
-          </div>
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1>Alexandre Simoes</h1>
+                <p class="lead">Passionné par le sport et le contact humain, j'ai choisi d'en faire un projet
+                    professionnel.</p>
+                <p class="role">Commercial | Licence 3 - Commercialisation de services et produits sportifs (ILEPS)</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="pdf/CV.pdf" target="_blank" rel="noopener">Voir mon CV</a>
+                    <a class="btn btn-outline" href="#contact">Me contacter</a>
+                </div>
+            </div>
+            <div class="hero-photo">
+                <img src="img/Photo_ID.jpg" alt="Photo professionnelle d'Alexandre" loading="lazy">
+            </div>
         </div>
-        <div class="hero-photo">
-          <img src="img/Photo_ID.jpg" alt="Photo professionnelle d'Alexandre" loading="lazy">
-        </div>
-      </div>
     </section>
 
     <!-- About: présentation détaillée et contact rapide -->
     <section id="about" class="section about">
-      <div class="container">
-        <h2>À propos</h2>
-        <div class="about-grid">
-          <div>
-            <p>Je m'appelle Alexandre Simoes, j'ai 19 ans et je suis actuellement en Licence 3 à l'ILEPS, spécialisé dans la commercialisation de services et produits sportifs. Mon parcours m'a amené à travailler en alternance chez Fitness Park Montmartre où j'occupe le poste de commercial.</p>
-            <p>Mon intérêt pour le sport, particulièrement l'aviron, m'a appris la rigueur, la persévérance et l'esprit d'équipe — des qualités que j'applique quotidiennement dans le monde professionnel.</p>
-          </div>
-          <div class="about-cards">
-            <div class="card">
-              <h3>Contact</h3>
-              <ul class="contact-list">
-                <li>Email: <a href="mailto:alexandre.simoes.2006@gmail.com">alexandre.simoes.2006@gmail.com</a></li>
-                <li>GitHub: <a href="https://github.com/AlexandreS78" target="_blank" rel="noopener">AlexandreS78</a></li>
-                <li>LinkedIn: <a href="https://www.linkedin.com/in/alexandre-simoes-aab7ab274" target="_blank" rel="noopener">linkedin.com/in/alexandre-simoes-aab7ab274</a></li>
-              </ul>
+        <div class="container">
+            <h2>À propos</h2>
+            <div class="about-grid">
+                <div>
+                    <p>
+                        Je m'appelle Alexandre Simoes, j'ai 19 ans et je suis actuellement en
+                        3<sup><small>ème</small></sup> année de Licence de commerce à l'ILEPS,
+                        spécialisé dans la commercialisation de services et produits sportifs.
+                        Mon parcours m'a amené à travailler en alternance chez Fitness Park Montmartre
+                        où j'occupe le poste de commercial avec une évolution vers un poste de manager.
+                    </p>
+                    <p>
+                        Le sport occupe une place importante dans ma vie, notamment à travers l’aviron, une
+                        discipline qui m’a appris la rigueur, la persévérance et l’esprit d’équipe.
+                    </p>
+                    <p>
+                        En parallèle, j’aime aussi les jeux vidéo, qui stimulent ma concentration, affûtent mon sens
+                        stratégique et renforcent ma capacité d’analyse et de réflexion.
+                    </p>
+                </div>
+                <div class="about-cards">
+                    <div class="card">
+                        <h2>Valeurs et qualités</h2>
+                        <div class="card-content">
+                            <ul class="values-list">
+                                <li>Autonome</li>
+                                <li>Fiable</li>
+                                <li>Sociable</li>
+                                <li>Généreux</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="card">
-              <h3>Alternance</h3>
-              <p><strong>Commercial — Fitness Park Montmartre</strong></p>
-              <p>Compétences développées : Vente, Relation client, Gestion, Communication, Organisation, Prospection, Événementiel, Marketing, Travail en équipe, Formation.</p>
-            </div>
-          </div>
         </div>
-      </div>
+    </section>
+
+    <section id="experience" class="section experience">
+        <div class="container">
+            <h2>Expériences professionnelles</h2>
+            <div class="timeline">
+                <article class="timeline-item">
+                    <h3>Commercial - Fitness Park Montmartre</h3>
+
+                    <h4>Missions principales :</h4>
+                    <p>
+                        Au sein de Fitness Park Montmartre, j’ai renforcé mes compétences en commerce,
+                        communication et gestion de projets. Présent dès l’ouverture du centre, j’ai participé à sa
+                        mise en place globale, au démarchage client et à l’accueil des membres. J’ai également
+                        coordonné des événements comme les « Portes Ouvertes », en gérant les partenariats,
+                        l’animation, la planification et la communication. J’ai contribué à la création de supports
+                        marketing et à la gestion des réseaux sociaux pour promouvoir le club et ses offres. Enfin,
+                        j’accompagne dans le management operational avec la responsabiliser de la formation les nouveaux
+                        collaborateurs et de la gestion de problème client par mail, téléphone ou en face à face.
+                    </p>
+
+                    <h4>Compétences développées :</h4>
+                    <ul class="values-list">
+                        <li>Vente</li>
+                        <li>Relation</li>
+                        <li>client</li>
+                        <li>Gestion</li>
+                        <li>Communication</li>
+                        <li>Organisation</li>
+                        <li>Prospection</li>
+                        <li>Événementiel</li>
+                        <li>Marketing</li>
+                        <li>Travail en équipe</li>
+                        <li>Formation</li>
+                    </ul>
+                </article>
+
+                <article class="timeline-item">
+                    <h3>Vendeur - PUMA Aubergenville</h3>
+
+                    <h4>Missions principales :</h4>
+                    <p>
+                        En tant que vendeur chez PUMA Aubergenville, j'étais responsable de l'accueil et du conseil
+                        client, assurant une expérience d'achat positive. Je gérais les stocks, veillant à la
+                        disponibilité
+                        des produits et à la présentation attrayante du magasin. J'ai également participé aux opérations
+                        marketing en mettant en place des promotions et en contribuant à la visibilité de la marque.
+                        Enfin, je surveillais le bon fonctionnement du point de vente pour garantir un environnement sûr
+                        et agréable pour les clients.
+                    </p>
+
+                    <h4>Compétences développées :</h4>
+                    <ul class="values-list">
+                        <li>Aisance à l'oral</li>
+                        <li>Sens du service</li>
+                        <li>Efficacité en équipe</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
     </section>
 
     <!-- Compétences, expériences, études, loisirs, valeurs, projets, contact, mentions -->
@@ -109,6 +183,7 @@
                 <div class="skill-group">
                     <h3>Compétences professionnelles</h3>
                     <ul>
+                        <li>Management & gestion d'équipe</li>
                         <li>Vente & relation client</li>
                         <li>Gestion & organisation</li>
                         <li>Communication & marketing</li>
@@ -124,34 +199,13 @@
                     </ul>
                 </div>
                 <div class="skill-group">
-                    <h3>Qualités personnelles</h3>
+                    <h3>Compétences personnelles</h3>
                     <ul>
-                        <li>Autonome, Fiable, Sociable, Généreux</li>
-                        <li>Leadership, Sens de l'organisation, Aisance relationnelle</li>
+                        <li>Leadership</li>
+                        <li>Sens de l'organisation</li>
+                        <li>Aisance relationnelle</li>
                     </ul>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="section experience">
-        <div class="container">
-            <h2>Expériences professionnelles</h2>
-            <div class="timeline">
-                <article class="timeline-item">
-                    <h3>Commercial — Fitness Park Montmartre</h3>
-                    <p>Missions principales : Mise en place du centre, démarchage client, accueil des membres,
-                        coordination d'événements, gestion de partenariats, animation et communication, création de
-                        supports marketing, gestion des réseaux sociaux, accompagnement et formation des nouveaux
-                        arrivants.</p>
-                </article>
-
-                <article class="timeline-item">
-                    <h3>Vendeur — PUMA Aubergenville</h3>
-                    <p>Missions : Accueil et conseil client, gestion des stocks, participation aux opérations marketing,
-                        surveillance et bon fonctionnement du point de vente.</p>
-                    <p>Compétences acquises : aisance à l'oral, sens du service, efficacité en équipe.</p>
-                </article>
             </div>
         </div>
     </section>
@@ -161,7 +215,7 @@
             <h2>Études</h2>
             <div class="edu-grid">
                 <div class="edu-item">
-                    <h3>ILEPS — Licence 3</h3>
+                    <h3>ILEPS - Licence 3</h3>
                     <p>Domaine : Commercialisation de services et produits sportifs</p>
                 </div>
             </div>
@@ -201,22 +255,10 @@
 
                 <div>
                     <h3>Autres intérêts</h3>
-                    <p>Jeux vidéo, jeux de société — compétences : concentration, stratégie, réflexion, analyse,
+                    <p>Jeux vidéo, jeux de société - compétences : concentration, stratégie, réflexion, analyse,
                         partage.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="values" class="section values">
-        <div class="container">
-            <h2>Valeurs et qualités</h2>
-            <ul class="values-list">
-                <li>Autonome</li>
-                <li>Fiable</li>
-                <li>Sociable</li>
-                <li>Généreux</li>
-            </ul>
         </div>
     </section>
 
@@ -226,17 +268,24 @@
             <div class="projects-grid">
                 <div class="project">
                     <h3>Objectif études</h3>
-                    <p>Poursuivre en Master dans le business development, le commerce et le management du sport.</p>
+                    <p>
+                        Poursuivre en Master pour développer une expertise complète en marketing, management et stratégie
+                        commerciale.
+                    </p>
                 </div>
                 <div class="project">
                     <h3>Objectif professionnel</h3>
-                    <p>Devenir un professionnel accompli dans la gestion et le développement d'entreprises
-                        sportives.</p>
+                    <p>
+                        Devenir un professionnel accompli dans la gestion et le développement d'entreprises
+                        sportives.
+                    </p>
                 </div>
                 <div class="project">
                     <h3>Motivation</h3>
-                    <p>Mettre en avant mes compétences et continuer à progresser dans un environnement stimulant et
-                        ambitieux.</p>
+                    <p>
+                        Mettre en avant mes compétences et continuer à progresser dans un environnement compétitif et
+                        innovant.
+                    </p>
                 </div>
             </div>
         </div>
@@ -282,21 +331,22 @@
     <section id="privacy" class="section privacy">
         <div class="container">
             <h2>Mentions légales</h2>
-            <p>Site réalisé par Alexandre Simoes — Informations de contact disponibles dans la section Contact. Ce site
+            <p>Site réalisé par Alexandre Simoes - Informations de contact disponibles dans la section Contact. Ce site
                 a pour vocation de présenter le parcours professionnel et les compétences.</p>
         </div>
     </section>
-  </main>
+</main>
 
-  <footer class="site-footer">
+
+<footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> Alexandre Simoes — Tous droits réservés.</p>
-      <div class="footer-links">
-        <a href="#privacy">Mentions</a>
-        <a href="#contact">Contact</a>
-      </div>
+        <p>© <span id="year"></span> Alexandre Simoes - Tous droits réservés.</p>
+        <div class="footer-links">
+            <a href="#privacy">Mentions</a>
+            <a href="#contact">Contact</a>
+        </div>
     </div>
-  </footer>
+</footer>
 
 
 </body>
