@@ -30,12 +30,13 @@ avoir cloné le dépôt.
 
 ## Déploiement (GitHub Pages)
 
-Le site est déployer sur `https://alexandres78.github.io/portfolio-as.github.io/`
+Le site est déployé
+sur [https://alexandres78.github.io/portfolio-as.github.io/](https://alexandres78.github.io/portfolio-as.github.io/)
 
 > Pour déployer le projet sur GitHub Pages :
 > 1. Allez dans les paramètres du dépôt sur GitHub → Settings → Pages.
 > 2. Dans la section "Source" (ou "Build and deployment"), sélectionnez la branche `main` (ou `gh-pages`) et le dossier
->    racine `/(root)`. Enregistrez.
+     > racine `/(root)`. Enregistrez.
 > 3. GitHub Pages publiera votre site à l'URL `https://<votre-utilisateur>.github.io/<nom-du-depot>/`.
 >
 > Conseil : si `index.html` utilise des chemins relatifs, le site fonctionnera sans autre modification. Sinon, ajoutez
