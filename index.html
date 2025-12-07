@@ -4,36 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Alexandre SIMOES - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Reset & layout */
-        html, body { height: 100%; margin: 0; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
-        body { color: #fff; }
+        /* ----------------------
+           Styles locaux (modifiés pour cohérence)
+           - zoom léger de la vidéo (scale)
+           - overlay sombre pour lisibilité
+           - centrage vertical/horizontal du hero
+           - titre en blanc
+           - application du style de bouton (reprise des variables de style.css)
+           ---------------------- */
 
-        /* Video background container */
+        :root {
+            --primary: #22427c; /* repris de style.css */
+            --header-height: 70px; /* si header présent */
+        }
+
+        /* Vidéo en background (cover) : on ajoute un léger zoom via scale pour l'effet demandé */
         .video-bg { position: fixed; inset: 0; overflow: hidden; z-index: -2; }
         .video-bg iframe {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 177.78vh; height: 100vh; /* ensures cover behavior across aspect ratios */
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(1.06); /* léger zoom */
+            width: 177.78vh; height: 100vh; /* cover-like */
             min-width: 100vw; min-height: 56.25vw;
             pointer-events: none; border: 0;
+            filter: saturate(1.02);
         }
 
-        /* Dark overlay so text is readable */
+        /* Overlay sombre pour améliorer la lisibilité du texte */
         .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: -1; }
 
-        /* Centered content */
-        .content { position: relative; z-index: 1; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 1rem; }
-        h1 { margin: 0; font-weight: 800; letter-spacing: 2px; font-size: clamp(2.5rem, 9vw, 6rem); }
-
-        .btn {
-            display: inline-block; margin-top: 1.5rem; padding: 0.85rem 1.6rem; background: #ffffff; color: #111; text-decoration: none; border-radius: 999px; font-weight: 600; transition: transform .18s ease, box-shadow .18s ease;
+        /* Contenu centré - prend en compte un header éventuel */
+        .content {
+            position: relative; z-index: 1;
+            min-height: calc(100vh - var(--header-height));
+            display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+            padding: 1rem;
+            gap: 1rem;
         }
-        .btn:hover, .btn:focus { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
 
+        /* Titre principal : blanc, gros et lisible */
+        .content h1 {
+            margin: 0; color: #fff; font-weight: 800; letter-spacing: 2px;
+            font-size: clamp(2.5rem, 9vw, 6rem);
+            line-height: 1; text-shadow: 0 8px 30px rgba(0,0,0,0.55);
+        }
+
+        /* Réutiliser le style 'btn-primary' de style.css : on applique uniquement ici pour ne pas modifier d'autres pages */
+        .content .btn {
+            display: inline-block; padding: 0.6rem 0.95rem; border-radius: 8px; font-weight: 600; text-decoration: none; border: 2px solid transparent;
+            background: var(--primary); color: #fff;
+        }
+        .content .btn:hover, .content .btn:focus { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+
+        /* Responsive tweaks */
+        @media (max-width: 640px) {
+            .content h1 { font-size: clamp(2rem, 12vw, 3.2rem); }
+            .video-bg iframe { transform: translate(-50%, -50%) scale(1.12); width: 200vw; height: auto; }
+        }
+
+        /* Respecter préférences d'animations */
         @media (prefers-reduced-motion: reduce) {
-            .video-bg iframe { display: none; }
+            .video-bg iframe { transform: translate(-50%, -50%); }
+            .content .btn, .content h1 { transition: none; }
         }
+
     </style>
 </head>
 <body>
