@@ -4,13 +4,22 @@ Site de présentation personnel (portfolio) sous la forme d'un site statique HTM
 
 ## Description
 
-Ce dépôt contient les sources d'un site statique servant de portfolio et de page de contact pour "Alexandre". Le site
-est construit avec des fichiers statiques : `index.html`, `style.css`, `script.js` et des ressources (images, SVG, PDF).
+Ce dépôt contient le code source d'un site web statique (HTML, CSS, JavaScript) servant de portfolio et de page de
+contact pour Alexandre Simoes. Le site comprend :
+
+- une page d'atterrissage `index.html`,
+- une page de présentation complète `home.html`,
+- les styles dans le dossier `css/` et les scripts dans `js/`,
+- les ressources (images, SVG, icônes) dans `img/` et `svg/`, la vidéo dans `video/` et le CV au format PDF dans `pdf/`.
+
+Il s'agit d'un site statique : aucune étape de compilation n'est requise, il peut être ouvert localement dans un
+navigateur ou déployé tel quel (par exemple via GitHub Pages).
 
 Objectifs :
 
 - Présenter le profil et le CV (PDF dans `pdf/CV.pdf`).
-- Afficher des photos et pictogrammes (dossier `img/` et `svg/`).
+- Afficher des photos et pictogrammes (dossier `img/png/` et `img/svg/`).
+- Intégrer une vidéo de présentation (dossier `videos/`).
 - Fournir des liens vers les profils sociaux (GitHub, LinkedIn, e-mail).
 
 ## Structure du dépôt
@@ -20,9 +29,12 @@ Objectifs :
 - `script.js` - JavaScript (interactions légères).
 - `css/` - styles CSS
 - `img/` - images utilisées dans le site.
-- `svg/` - icônes et pictogrammes au format SVG.
-- `icons/` - icônes diverses.
+    - `png/` - images au format PNG.
+    - `svg/` - images au format SVG.
+    - `icon/` - icônes utilisées dans le site.
+- `js/` - scripts JavaScript.
 - `pdf/CV.pdf` - CV téléchargeable.
+- `videos/` - vidéos utilisées dans le site.
 - `README.md` - ce fichier.
 
 ## Lancer le site en local
@@ -51,15 +63,15 @@ Vous pouvez me contacter via :
 
 <ul>
   <li>
-    <img src="svg/icon-mail.svg" alt="Logo Gmail" title="Logo Gmail" width="15" height="15" />
+    <img src="img/svg/icon-mail.svg" alt="Logo Gmail" title="Logo Gmail" width="15" height="15" />
     Email : <a href="mailto:alexandre.simoes.2006@gmail.com" title="Envoyer un e‑mail à Alexandre">alexandre.simoes.2006@gmail.com</a>
   </li>
   <li>
-    <img src="svg/icon-github.svg" alt="Logo GitHub" title="Logo GitHub" width="15" height="15" />
+    <img src="img/svg/icon-github.svg" alt="Logo GitHub" title="Logo GitHub" width="15" height="15" />
     GitHub : <a href="https://github.com/AlexandreS78" target="_blank" rel="noopener noreferrer" title="Voir le profil GitHub d'Alexandre">https://github.com/AlexandreS78</a>
   </li>
   <li>
-    <img src="svg/icon-linkedin.svg" alt="Logo LinkedIn" title="Logo LinkedIn" width="15" height="15" />
+    <img src="img/svg/icon-linkedin.svg" alt="Logo LinkedIn" title="Logo LinkedIn" width="15" height="15" />
     LinkedIn : <a href="https://www.linkedin.com/in/alexandre-simoes-aab7ab274" target="_blank" rel="noopener noreferrer" title="Voir le profil LinkedIn d'Alexandre">https://www.linkedin.com/in/alexandre-simoes-aab7ab274</a>
   </li>
 </ul>
