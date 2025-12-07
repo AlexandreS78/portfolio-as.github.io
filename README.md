@@ -17,10 +17,13 @@ Objectifs :
 
 - `index.html`- page d'entrée du site.
 - `home.html` - page d'accueil.
-- `style.css` - styles CSS.
 - `script.js` - JavaScript (interactions légères).
+- `css/style.css` - styles CSS Généraux.
+- `css/home.css` - styles CSS spécifiques à la page d'accueil.
+- `css/index.css` - styles CSS spécifiques à la page index.
 - `img/` - images utilisées dans le site.
 - `svg/` - icônes et pictogrammes au format SVG.
+- `icons/` - icônes diverses.
 - `pdf/CV.pdf` - CV téléchargeable.
 - `README.md` - ce fichier.
 

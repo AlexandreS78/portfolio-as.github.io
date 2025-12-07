@@ -4,92 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Alexandre SIMOES - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Favicon links Standard -->
+    <link rel="icon" type="image/x-icon" href="icons/Pictogramme_aviron_JO_2024_blue_BG.ico"> <!-- compat classique -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/Pictogramme_aviron_JO_2024_blue_BG.png?v=1"> <!-- png pour qualité/tailles -->
+    <link rel="icon" type="image/svg+xml" href="svg/Pictogramme_aviron_JO_2024_blue_BG.svg"> <!-- svg pour navigateurs modernes -->
+    <!-- Favicon links Touch Icons -->
+    <link rel="apple-touch-icon" href="img/Pictogramme_aviron_JO_2024_blue_BG_touch-icons/apple-touch-icon-iphone-60x60.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/Pictogramme_aviron_JO_2024_blue_BG_touch-icons/apple-touch-icon-ipad-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/Pictogramme_aviron_JO_2024_blue_BG_touch-icons/apple-touch-icon-iphone-retina-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/Pictogramme_aviron_JO_2024_blue_BG_touch-icons/apple-touch-icon-ipad-retina-152x152.png">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* ----------------------
-           Styles locaux (modifiés pour cohérence)
-           - zoom léger de la vidéo (scale)
-           - overlay sombre pour lisibilité
-           - centrage vertical/horizontal du hero
-           - titre en blanc
-           - application du style de bouton (reprise des variables de style.css)
-           ---------------------- */
-
-        :root {
-            --primary: #22427c; /* repris de style.css */
-            --header-height: 70px; /* si header présent */
-        }
-
-        /* Vidéo en background (cover) : on ajoute un léger zoom via scale pour l'effet demandé */
-        .video-bg { position: fixed; inset: 0; overflow: hidden; z-index: -2; }
-        .video-bg iframe {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%) scale(1.06); /* léger zoom */
-            width: 177.78vh; height: 100vh; /* cover-like */
-            min-width: 100vw; min-height: 56.25vw;
-            pointer-events: none; border: 0;
-            filter: saturate(1.02);
-        }
-
-        /* Overlay sombre pour améliorer la lisibilité du texte */
-        .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: -1; }
-
-        /* Contenu centré - prend en compte un header éventuel */
-        .content {
-            position: relative; z-index: 1;
-            min-height: calc(100vh - var(--header-height));
-            display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
-            padding: 1rem;
-            gap: 1rem;
-        }
-
-        /* Titre principal : blanc, gros et lisible */
-        .content h1 {
-            margin: 0; color: #fff; font-weight: 800; letter-spacing: 2px;
-            font-size: clamp(2.5rem, 9vw, 6rem);
-            line-height: 1; text-shadow: 0 8px 30px rgba(0,0,0,0.55);
-        }
-
-        /* Réutiliser le style 'btn-primary' de style.css : on applique uniquement ici pour ne pas modifier d'autres pages */
-        .content .btn {
-            display: inline-block; padding: 0.6rem 0.95rem; border-radius: 8px; font-weight: 600; text-decoration: none; border: 2px solid transparent;
-            background: var(--primary); color: #fff;
-        }
-        .content .btn:hover, .content .btn:focus { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
-
-        /* Responsive tweaks */
-        @media (max-width: 640px) {
-            .content h1 { font-size: clamp(2rem, 12vw, 3.2rem); }
-            .video-bg iframe { transform: translate(-50%, -50%) scale(1.12); width: 200vw; height: auto; }
-        }
-
-        /* Respecter préférences d'animations */
-        @media (prefers-reduced-motion: reduce) {
-            .video-bg iframe { transform: translate(-50%, -50%); }
-            .content .btn, .content h1 { transition: none; }
-        }
-
-    </style>
 </head>
 <body>
 
-    <!-- Video background: autoplay muted loop via YouTube embed (playlist param required for loop) -->
-    <div class="video-bg" aria-hidden="true">
-        <iframe src="https://www.youtube.com/embed/T9jzk3IvNwQ?autoplay=1&mute=1&controls=0&loop=1&playlist=T9jzk3IvNwQ&modestbranding=1&rel=0&showinfo=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
+<!-- Video background: autoplay muted loop via YouTube embed (playlist param required for loop) -->
+<div class="video-bg" aria-hidden="true">
+    <iframe src="https://www.youtube.com/embed/T9jzk3IvNwQ?autoplay=1&mute=1&controls=0&loop=1&playlist=T9jzk3IvNwQ&modestbranding=1&rel=0&showinfo=0"
+            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
 
-    <div class="overlay" aria-hidden="true"></div>
+<div class="overlay" aria-hidden="true"></div>
 
-    <main class="content">
-        <h1>Alexandre SIMOES</h1>
-        <a class="btn" href="home.html">En savoir plus</a>
-    </main>
+<main class="content">
+    <h1>Alexandre SIMOES</h1>
+    <a class="btn btn-primary" href="home.html">En savoir plus</a>
+</main>
 
-    <script>
-        // Smooth focus behavior for better UX
-        document.documentElement.style.scrollBehavior = 'smooth';
-    </script>
+<script>
+    // Smooth focus behavior for better UX
+    document.documentElement.style.scrollBehavior = 'smooth';
+</script>
 </body>
 </html>
