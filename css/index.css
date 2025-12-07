@@ -26,16 +26,22 @@
     filter: saturate(1.02);
 }
 
+/* Assurer que la racine prend toute la hauteur pour les calculs 100vh/100% */
+html, body {
+    height: 100%;
+}
+
 /* Styles pour la vidéo HTML5 */
 .video-bg video.bg-video {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1.06);
-    width: auto;
+    /* Forcer la vidéo à couvrir l'viewport quel que soit le ratio */
+    width: 100vw;
     height: 100vh;
-    min-width: 100vw;
-    min-height: 56.25vw;
+    max-width: none;
+    max-height: none;
     object-fit: cover;
     pointer-events: none;
     display: block; /* on veut afficher la vidéo si l'autoplay fonctionne */
@@ -168,6 +174,11 @@
 
 @media (prefers-reduced-motion: reduce) {
     .video-bg iframe {
+        transform: translate(-50%, -50%);
+    }
+
+    /* Désactiver l'effet de zoom pour la vidéo HTML5 lorsque l'utilisateur demande réduction des animations */
+    .video-bg video.bg-video {
         transform: translate(-50%, -50%);
     }
 
