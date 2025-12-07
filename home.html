@@ -1,14 +1,7 @@
-<!-- HTMLDOCS
-  Projet: Portfolio d'Alexandre Simoes
-  Description: Page unique (single page) structurée en sections sémantiques pour présenter
-  l'identité, compétences, expériences, études, loisirs (aviron), projets et contact.
-
-  Conventions:
-  - Sections identifiées par des IDs (hero, about, skills, experience, education, hobbies,
-    values, projects, contact, privacy). Ces IDs servent aux ancres de navigation.
-  - Les images sont placées dans /img, les icônes dans /svg, le CV dans /pdf.
-  - Accessibilité: utilisation d'attributs ARIA pour la navigation et la lightbox, texte
-    alternatif pour les images, focus management dans le JS.
+<!--
+  FICHIER : home.html
+  DESCRIPTION : Page principale du portfolio d'Alexandre Simoes - sections sémantiques (hero, about, experience, skills, education, hobbies, projects, contact, privacy).
+  REMARQUE : commentaires courts en français, destinés à la maintenance et à la structure du document.
 -->
 
 <!DOCTYPE html>
@@ -17,15 +10,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Alexandre Simoes - Portfolio</title>
-    <!-- Favicon links Standard -->
-    <link rel="icon" type="image/x-icon" href="icons/Pictogramme_aviron_JO_2024_blue_BG.ico"> <!-- compat classique -->
-    <link rel="icon" type="image/png" sizes="32x32" href="img/Pictogramme_aviron_JO_2024_blue_BG.png?v=1"> <!-- png pour qualité/tailles -->
-    <link rel="icon" type="image/svg+xml" href="svg/Pictogramme_aviron_JO_2024_blue_BG.svg"> <!-- svg pour navigateurs modernes -->
-    <!-- Favicon links Touch Icons -->
-    <link rel="apple-touch-icon" href="img/Pictogramme_aviron_JO_2024_blue_BG_touch-icons/apple-touch-icon-iphone-60x60.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="img/Pictogramme_aviron_JO_2024_blue_BG_touch-icons/apple-touch-icon-ipad-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="img/Pictogramme_aviron_JO_2024_blue_BG_touch-icons/apple-touch-icon-iphone-retina-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="img/Pictogramme_aviron_JO_2024_blue_BG_touch-icons/apple-touch-icon-ipad-retina-152x152.png">
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="icons/Pictogramme_aviron_JO_2024_blue_BG.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/Pictogramme_aviron_JO_2024_blue_BG.png?v=1">
+    <link rel="icon" type="image/svg+xml" href="svg/Pictogramme_aviron_JO_2024_blue_BG.svg">
+    <!-- Touch icons -->
+    <link rel="apple-touch-icon"
+          href="img/Pictogramme_aviron_JO_2024_blue_BG_touch-icons/apple-touch-icon-iphone-60x60.png">
+    <link rel="apple-touch-icon" sizes="60x60"
+          href="img/Pictogramme_aviron_JO_2024_blue_BG_touch-icons/apple-touch-icon-ipad-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"
+          href="img/Pictogramme_aviron_JO_2024_blue_BG_touch-icons/apple-touch-icon-iphone-retina-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"
+          href="img/Pictogramme_aviron_JO_2024_blue_BG_touch-icons/apple-touch-icon-ipad-retina-152x152.png">
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/home.css">
@@ -36,10 +33,7 @@
 </head>
 <body>
 
-<!-- HTMLDOCS: Header
-  Contient le logo, la navigation principale et le bouton de téléchargement du CV.
-  La nav utilise des ancres vers les sections de la page et est accessible via aria-*.
--->
+<!-- Header: logo, navigation, bouton CV -->
 <header class="site-header">
     <div class="container header-inner">
         <a href="#hero" class="logo" aria-label="Accueil">
@@ -68,9 +62,9 @@
     </div>
 </header>
 
-<!-- HTMLDOCS: Contenu principal (main) -->
+<!-- Main: contenu principal structuré par sections -->
 <main>
-    <!-- Hero: présentation courte + photo + actions -->
+    <!-- Section: Hero (présentation courte + photo + actions) -->
     <section id="hero" class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
@@ -89,7 +83,7 @@
         </div>
     </section>
 
-    <!-- About: présentation détaillée et contact rapide -->
+    <!-- Section: À propos -->
     <section id="about" class="section about">
         <div class="container">
             <h2>À propos</h2>
@@ -128,6 +122,7 @@
         </div>
     </section>
 
+    <!-- Section: Expériences professionnelles -->
     <section id="experience" class="section experience">
         <div class="container">
             <h2>Expériences professionnelles</h2>
@@ -189,7 +184,7 @@
         </div>
     </section>
 
-    <!-- Compétences, expériences, études, loisirs, valeurs, projets, contact, mentions -->
+    <!-- Section: Compétences -->
     <section id="skills" class="section skills">
         <div class="container">
             <h2>Compétences</h2>
@@ -224,6 +219,7 @@
         </div>
     </section>
 
+    <!-- Section: Études -->
     <section id="education" class="section education">
         <div class="container">
             <h2>Études</h2>
@@ -236,6 +232,7 @@
         </div>
     </section>
 
+    <!-- Section: Loisirs (Galerie) -->
     <section id="hobbies" class="section hobbies">
         <div class="container">
             <h2>Loisirs</h2>
@@ -246,24 +243,6 @@
                     <p>Voici quelques photos prises en compétition et entraînement :</p>
 
                     <div class="hobby-gallery" aria-label="Galerie d'aviron">
-                        <!--                        <figure>-->
-                        <!--                            <a href="img/Aviron_Competition_de_Meulan.jpeg" class="gallery-link"-->
-                        <!--                               data-caption="Compétition de Meulan">-->
-                        <!--                                <img src="img/Aviron_Competition_de_Meulan.jpeg"-->
-                        <!--                                     alt="Alexandre en compétition d'aviron"-->
-                        <!--                                     loading="lazy">-->
-                        <!--                            </a>-->
-                        <!--                            <figcaption>Compétition de Meulan</figcaption>-->
-                        <!--                        </figure>-->
-
-                        <!--                        <figure>-->
-                        <!--                            <a href="img/Aviron_Competition_des_Masses.jpeg" class="gallery-link"-->
-                        <!--                               data-caption="Compétition des Masses">-->
-                        <!--                                <img src="img/Aviron_Competition_des_Masses.jpeg"-->
-                        <!--                                     alt="Alexandre sur l'eau lors d'une compétition" loading="lazy">-->
-                        <!--                            </a>-->
-                        <!--                            <figcaption>Compétition des Masses</figcaption>-->
-                        <!--                        </figure>-->
 
                         <figure>
                             <a href="img/Aviron_Championnats_de_France.jpg" class="gallery-link"
@@ -297,6 +276,7 @@
         </div>
     </section>
 
+    <!-- Section: Projets et objectifs -->
     <section id="projects" class="section projects">
         <div class="container">
             <h2>Projets et objectifs</h2>
@@ -327,6 +307,7 @@
         </div>
     </section>
 
+    <!-- Section: Contact (formulaire + réseaux) -->
     <section id="contact" class="section contact">
         <div class="container">
             <h2>Contact</h2>
@@ -364,6 +345,7 @@
         </div>
     </section>
 
+    <!-- Section: Mentions légales / privacy -->
     <section id="privacy" class="section privacy">
         <div class="container">
             <h2>Mentions légales</h2>
@@ -374,6 +356,7 @@
 </main>
 
 
+<!-- Footer -->
 <footer class="site-footer">
     <div class="container footer-inner">
         <p>© <span id="year"></span> Alexandre Simoes - Tous droits réservés.</p>

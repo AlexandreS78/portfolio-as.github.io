@@ -1,11 +1,17 @@
+/**
+ * @file js/home.js
+ * @description Comportement spécifique à `home.html` : navigation accessible, reveal, lightbox, formulaire, header.
+ */
+
 // JS spécifique à home.html
 // Contient le code de la page home (navigation, reveal, lightbox, formulaire, header)
 
-
-
-(function homePage(){
-    try{
-        // Menu mobile accessible
+(function homePage() {
+    try {
+        /**
+         * Gestion du menu mobile accessible.
+         * @private
+         */
         const navToggle = document.querySelector('.nav-toggle');
         const mainNav = document.getElementById('main-nav');
         if (navToggle && mainNav) {
@@ -20,7 +26,10 @@
             });
         }
 
-        // Smooth scroll pour ancres internes
+        /**
+         * Smooth scroll pour ancres internes (compense la hauteur du header).
+         * @private
+         */
         document.querySelectorAll('a[href^="#"]').forEach(link => {
             link.addEventListener('click', (e) => {
                 const href = link.getAttribute('href');
@@ -41,7 +50,10 @@
             })
         });
 
-        // Reveal on scroll
+        /**
+         * Configuration du reveal (IntersectionObserver + fallback).
+         * @private
+         */
         (function setupReveal() {
             const els = Array.from(document.querySelectorAll('main .section, .hero, .header-inner'));
             if (els.length === 0) return;
@@ -79,7 +91,10 @@
         const yearEl = document.getElementById('year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-        // Validation basique du formulaire de contact (côté client)
+        /**
+         * Validation basique du formulaire de contact (côté client).
+         * @private
+         */
         const form = document.getElementById('contact-form');
         if (form) {
             form.addEventListener('submit', (e) => {
@@ -103,7 +118,10 @@
             };
         }
 
-        // Header: changement visuel au scroll et mise à jour du lien actif
+        /**
+         * Header : changement visuel au scroll et mise à jour du lien actif.
+         * @private
+         */
         (function headerScrollAndActiveLink() {
             const header = document.querySelector('.site-header');
             const navLinks = Array.from(document.querySelectorAll('.main-nav a'));
@@ -131,7 +149,10 @@
             onScroll();
         })();
 
-        // Lightbox: galerie d'images
+        /**
+         * Lightbox : ouvre/ferme la visualisation d'image et gère le focus.
+         * @private
+         */
         (function setupLightbox() {
             const galleryLinks = Array.from(document.querySelectorAll('.gallery-link'));
             const lightbox = document.getElementById('lightbox');
@@ -183,8 +204,7 @@
             });
         })();
 
-    } catch(e){
+    } catch (e) {
         console.warn('home.js error', e);
     }
 })();
-

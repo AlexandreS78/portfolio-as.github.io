@@ -1,8 +1,10 @@
-/* Styles spécifiques à home.html (déplacés depuis css/style.css)
-   Contient : hero, about, timeline, skills, education, hobbies, projects, contact, gallery, lightbox, responsive rules.
-*/
+/* ==================================================
+   FICHIER : css/home.css
+   DESCRIPTION : Styles spécifiques à la page home.html
+   CONTENU PRINCIPAL : hero, about, timeline, skills, education, hobbies, projects, contact, gallery, lightbox, responsive
+   ================================================== */
 
-/* Hero: mise en avant principale */
+/* Hero */
 .hero {
     padding: 3.5rem 0
 }
@@ -42,7 +44,7 @@
     gap: 0.6rem
 }
 
-/* Sections: structure générale */
+/* Sections générales */
 .section {
     padding: 3rem 0;
     border-top: 1px solid #f2f4f7
@@ -75,6 +77,7 @@
     padding: 0.8rem;
 }
 
+/* Compétences */
 .skills-grid {
     display: grid;
     grid-template-columns:repeat(3, 1fr);
@@ -86,6 +89,7 @@
     padding: 0.6rem
 }
 
+/* Timeline */
 .timeline {
     display: flex;
     flex-direction: column;
@@ -99,12 +103,14 @@
     border: 1px solid #eee
 }
 
+/* Education */
 .edu-grid {
     display: grid;
     grid-template-columns:1fr;
     gap: 1rem
 }
 
+/* Hobbies */
 .hobbies-grid {
     display: grid;
     grid-template-columns:1fr 1fr;
@@ -125,6 +131,7 @@
     border-radius: 999px
 }
 
+/* Projets */
 .projects-grid {
     display: grid;
     grid-template-columns:repeat(3, 1fr);
@@ -137,7 +144,7 @@
     border-radius: 8px
 }
 
-/* Contact: formulaire et infos */
+/* Contact */
 .contact-grid {
     display: grid;
     grid-template-columns:1fr 300px;
@@ -173,7 +180,7 @@
     color: var(--text)
 }
 
-/* Footer (peut rester global, mais gardé ici s'il s'agit d'un style de section) */
+/* Footer */
 .site-footer {
     padding: 1.2rem 0;
     border-top: 1px solid #eee;
@@ -192,7 +199,7 @@
     text-decoration: none
 }
 
-/* Galerie d'aviron: vignettes */
+/* Galerie */
 .hobby-gallery {
     display: grid;
     grid-template-columns:repeat(3, 1fr);
@@ -231,7 +238,7 @@
     margin-top: 0.4rem
 }
 
-/* Lightbox: overlay d'agrandissement */
+/* Lightbox */
 .lightbox {
     position: fixed;
     inset: 0;
@@ -298,11 +305,12 @@
     text-align: center
 }
 
-/* Ensure lightbox hidden content not focusable when closed */
+/* Masquer le contenu focusable lorsque la lightbox est fermée */
 .lightbox[aria-hidden="true"] {
     visibility: hidden
 }
 
+/* Responsive */
 @media (max-width: 900px) {
     :root {
         --header-height: 78px
@@ -386,7 +394,7 @@
     }
 }
 
-/* Reveal animation */
+/* Animation reveal */
 .reveal {
     opacity: 0;
     transform: translateY(12px);
@@ -398,7 +406,7 @@
     transform: none
 }
 
-/* Utilities */
+/* Utilitaires */
 .visually-hidden {
     position: absolute !important;
     height: 1px;
@@ -411,4 +419,3 @@
 .text-center {
     text-align: center
 }
-

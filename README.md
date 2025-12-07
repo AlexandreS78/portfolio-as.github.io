@@ -18,9 +18,7 @@ Objectifs :
 - `index.html`- page d'entrée du site.
 - `home.html` - page d'accueil.
 - `script.js` - JavaScript (interactions légères).
-- `css/style.css` - styles CSS Généraux.
-- `css/home.css` - styles CSS spécifiques à la page d'accueil.
-- `css/index.css` - styles CSS spécifiques à la page index.
+- `css/` - styles CSS
 - `img/` - images utilisées dans le site.
 - `svg/` - icônes et pictogrammes au format SVG.
 - `icons/` - icônes diverses.

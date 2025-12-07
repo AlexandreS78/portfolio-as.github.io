@@ -1,6 +1,9 @@
-/* Styles globaux du site (css/style.css)
-   Contient : variables, reset, container, header, navigation (desktop+mobile), boutons, utilitaires.
-*/
+/* ==================================================
+   FICHIER : css/style.css
+   DESCRIPTION : Styles globaux du site
+   CONTENU PRINCIPAL : variables, reset & base, container, header, navigation, boutons, utilitaires, responsive
+   REMARQUE : commentaires concis en français ; respecter la syntaxe CSS officielle
+   ================================================== */
 
 :root {
     --bg: #ffffff; /* Blanc */
@@ -125,7 +128,7 @@ body {
     cursor: pointer;
 }
 
-/* Buttons */
+/* Boutons */
 .btn {
     display: inline-block;
     padding: 0.6rem 0.9rem;
@@ -150,7 +153,7 @@ body {
     margin-left: auto;
 }
 
-/* Utilities */
+/* Utilitaires */
 .reveal {
     opacity: 0;
     transform: translateY(12px);
@@ -175,7 +178,7 @@ body {
     text-align: center;
 }
 
-/* Responsive: mobile navigation and header adjustments */
+/* Responsive (navigation mobile, header) */
 @media (max-width: 900px) {
     :root {
         --header-height: 78px;
@@ -219,7 +222,7 @@ body {
     }
 }
 
-/* Respect prefers-reduced-motion globally */
+/* Respecter prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
     * {
         transition: none !important;

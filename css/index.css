@@ -1,10 +1,15 @@
-/* Styles spécifiques à index.html */
+/* ==================================================
+   FICHIER : css/index.css
+   DESCRIPTION : Styles pour index.html (page d'accueil avec vidéo de fond)
+   CONTENU PRINCIPAL : vidéo de fond, overlay, contenu centré, contrôles et responsive
+   ================================================== */
+
 :root {
     --primary: #22427c; /* repris de css/style.css */
     --header-height: 70px;
 }
 
-/* Vidéo background (léger zoom) */
+/* Vidéo / arrière-plan */
 .video-bg {
     position: fixed;
     inset: 0;
@@ -26,27 +31,27 @@
     filter: saturate(1.02);
 }
 
-/* Assurer que la racine prend toute la hauteur pour les calculs 100vh/100% */
+/* Assurer que la racine prend toute la hauteur */
 html, body {
     height: 100%;
 }
 
-/* Styles pour la vidéo HTML5 */
+/* Vidéo HTML5 */
 .video-bg video.bg-video {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1.06);
-    /* Forcer la vidéo à couvrir l'viewport quel que soit le ratio */
     width: 100vw;
     height: 100vh;
     max-width: none;
     max-height: none;
     object-fit: cover;
     pointer-events: none;
-    display: block; /* on veut afficher la vidéo si l'autoplay fonctionne */
+    display: block;
 }
 
+/* Overlay et contenu */
 .overlay {
     position: fixed;
     inset: 0;
@@ -77,7 +82,7 @@ html, body {
     text-shadow: 0 8px 30px rgba(0, 0, 0, 0.55);
 }
 
-/* Utiliser .btn et .btn-primary depuis css/style.css */
+/* Bouton principal */
 .content .btn {
     display: inline-block;
     padding: 0.6rem 0.95rem;
@@ -94,7 +99,7 @@ html, body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
-/* Utility: screen-reader only text */
+/* Accessibilité: texte caché pour lecteurs d'écran */
 .sr-only {
     position: absolute !important;
     width: 1px;
@@ -107,10 +112,10 @@ html, body {
     border: 0;
 }
 
-/* Contrôle de lecture vidéo (bouton play/pause centré) */
+/* Contrôle lecture vidéo (bouton centré) */
 .video-play-control {
-    position: fixed; /* was absolute; fixed ensures it's outside .video-bg stacking context */
-    z-index: 9999; /* très au-dessus de l'overlay et du contenu */
+    position: fixed; /* fixed pour être indépendant du contexte */
+    z-index: 9999; /* au-dessus de l'overlay et du contenu */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -120,44 +125,52 @@ html, body {
     width: 84px;
     height: 84px;
     border-radius: 999px;
-    background: rgba(0,0,0,0.6); /* contraste élevé */
+    background: rgba(0, 0, 0, 0.6);
     color: #fff;
-    border: 2px solid rgba(255,255,255,0.12);
+    border: 2px solid rgba(255, 255, 255, 0.12);
     font-size: 28px;
     cursor: pointer;
 }
 
-/* When attribute [hidden] is removed, JS might use style.display; ensure hidden state respects CSS */
-.video-play-control[hidden] { display: none !important; }
-.video-play-control:not([hidden]) { display: flex !important; }
+/* Respecter l'attribut [hidden] */
+.video-play-control[hidden] {
+    display: none !important;
+}
+
+.video-play-control:not([hidden]) {
+    display: flex !important;
+}
 
 .video-play-control:focus {
     outline: none;
-    box-shadow: 0 0 0 4px rgba(100,150,255,0.24), 0 6px 18px rgba(0,0,0,0.45);
+    box-shadow: 0 0 0 4px rgba(100, 150, 255, 0.24), 0 6px 18px rgba(0, 0, 0, 0.45);
     transform: translate(-50%, -50%) scale(1.02);
 }
 
-/* Attribution de la vidéo (bas à droite) */
+/* Attribution de la vidéo */
 .video-attribution {
     position: fixed;
     right: 1rem;
     bottom: 1rem;
     z-index: 2;
-    background: rgba(0,0,0,0.45);
+    background: rgba(0, 0, 0, 0.45);
     color: #fff;
     padding: 0.35rem 0.6rem;
     border-radius: 6px;
     font-size: 0.8rem;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
 }
+
 .video-attribution a {
     color: #fff;
     text-decoration: underline;
 }
+
 .video-attribution a:hover, .video-attribution a:focus {
     color: #e6f0ff;
 }
 
+/* Responsive */
 @media (max-width: 640px) {
     .content h1 {
         font-size: clamp(2rem, 12vw, 3.2rem);
@@ -169,7 +182,11 @@ html, body {
         height: auto;
     }
 
-    .video-attribution { right: 0.5rem; bottom: 0.5rem; font-size: 0.75rem; }
+    .video-attribution {
+        right: 0.5rem;
+        bottom: 0.5rem;
+        font-size: 0.75rem;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -177,7 +194,7 @@ html, body {
         transform: translate(-50%, -50%);
     }
 
-    /* Désactiver l'effet de zoom pour la vidéo HTML5 lorsque l'utilisateur demande réduction des animations */
+    /* Désactiver l'effet de zoom pour la vidéo HTML5 */
     .video-bg video.bg-video {
         transform: translate(-50%, -50%);
     }
