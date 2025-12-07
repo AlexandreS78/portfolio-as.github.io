@@ -15,7 +15,8 @@ Objectifs :
 
 ## Structure du dépôt
 
-- `index.html` - page principale du site.
+- `index.html`- page d'entrée du site.
+- `home.html` - page d'accueil.
 - `style.css` - styles CSS.
 - `script.js` - JavaScript (interactions légères).
 - `img/` - images utilisées dans le site.
