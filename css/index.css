@@ -26,6 +26,21 @@
     filter: saturate(1.02);
 }
 
+/* Styles pour la vidéo HTML5 */
+.video-bg video.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.06);
+    width: auto;
+    height: 100vh;
+    min-width: 100vw;
+    min-height: 56.25vw;
+    object-fit: cover;
+    pointer-events: none;
+    display: block; /* on veut afficher la vidéo si l'autoplay fonctionne */
+}
+
 .overlay {
     position: fixed;
     inset: 0;
@@ -73,6 +88,70 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
+/* Utility: screen-reader only text */
+.sr-only {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Contrôle de lecture vidéo (bouton play/pause centré) */
+.video-play-control {
+    position: fixed; /* was absolute; fixed ensures it's outside .video-bg stacking context */
+    z-index: 9999; /* très au-dessus de l'overlay et du contenu */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none; /* contrôlé via l'attribut `hidden` côté JS */
+    align-items: center;
+    justify-content: center;
+    width: 84px;
+    height: 84px;
+    border-radius: 999px;
+    background: rgba(0,0,0,0.6); /* contraste élevé */
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.12);
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* When attribute [hidden] is removed, JS might use style.display; ensure hidden state respects CSS */
+.video-play-control[hidden] { display: none !important; }
+.video-play-control:not([hidden]) { display: flex !important; }
+
+.video-play-control:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(100,150,255,0.24), 0 6px 18px rgba(0,0,0,0.45);
+    transform: translate(-50%, -50%) scale(1.02);
+}
+
+/* Attribution de la vidéo (bas à droite) */
+.video-attribution {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 2;
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    padding: 0.35rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+.video-attribution a {
+    color: #fff;
+    text-decoration: underline;
+}
+.video-attribution a:hover, .video-attribution a:focus {
+    color: #e6f0ff;
+}
+
 @media (max-width: 640px) {
     .content h1 {
         font-size: clamp(2rem, 12vw, 3.2rem);
@@ -83,6 +162,8 @@
         width: 200vw;
         height: auto;
     }
+
+    .video-attribution { right: 0.5rem; bottom: 0.5rem; font-size: 0.75rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -94,4 +175,3 @@
         transition: none;
     }
 }
-

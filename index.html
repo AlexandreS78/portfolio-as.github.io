@@ -20,22 +20,102 @@
 </head>
 <body>
 
-<!-- Video background: autoplay muted loop via YouTube embed (playlist param required for loop) -->
+<!-- Video background: full <video> implementation (autoplay muted loop) -->
 <div class="video-bg" aria-hidden="true">
-    <iframe src="https://www.youtube.com/embed/T9jzk3IvNwQ?autoplay=1&mute=1&controls=0&loop=1&playlist=T9jzk3IvNwQ&modestbranding=1&rel=0&showinfo=0"
-            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <video id="bgVideo" class="bg-video" autoplay muted playsinline loop preload="auto" poster="img/HUIT_SENIOR_HOMME-CHAMPIONNATS_DE_FRANCE_BATEAUX_LONGS_2025.jpg" aria-hidden="true">
+        <source src="video/HUIT_SENIOR_HOMME-CHAMPIONNATS_DE_FRANCE_BATEAUX_LONGS_2025.mp4" type="video/mp4">
+        <!-- fallback image/text -->
+        Votre navigateur ne supporte pas la balise vidéo.
+    </video>
 </div>
 
 <div class="overlay" aria-hidden="true"></div>
+
+<button id="bgPlay" class="video-play-control" type="button" aria-label="Lancer la vidéo de fond" aria-controls="bgVideo" aria-expanded="false" hidden>
+    <span aria-hidden="true">▶</span>
+    <span class="sr-only">Lancer la vidéo de fond</span>
+</button>
 
 <main class="content">
     <h1>Alexandre SIMOES</h1>
     <a class="btn btn-primary" href="home.html">En savoir plus</a>
 </main>
 
+<!-- Attribution de la vidéo de fond (bas à droite) -->
+<div class="video-attribution" aria-hidden="false">
+    Vidéo de fond - source : <a href="https://www.youtube.com/watch?v=T9jzk3IvNwQ" target="_blank" rel="noopener noreferrer">YouTube</a>
+</div>
+
+<!-- Région d'annonce pour les lecteurs d'écran -->
+<div id="videoStatus" class="sr-only" role="status" aria-live="polite"></div>
+
 <script>
     // Smooth focus behavior for better UX
     document.documentElement.style.scrollBehavior = 'smooth';
+
+    // Gestion accessible de l'autoplay pour la vidéo en background
+    (function(){
+        const video = document.getElementById('bgVideo');
+        const ctrl = document.getElementById('bgPlay');
+        const status = document.getElementById('videoStatus');
+        if(!video || !ctrl) return;
+
+        function showControl(){
+            ctrl.hidden = false;
+            ctrl.setAttribute('aria-expanded', 'false');
+            ctrl.setAttribute('aria-hidden', 'false');
+        }
+        function hideControl(){
+            ctrl.hidden = true;
+            ctrl.setAttribute('aria-expanded', 'true');
+            ctrl.setAttribute('aria-hidden', 'true');
+        }
+
+        // Tentative d'autoplay muet
+        const p = video.play();
+        if(p !== undefined){
+            p.then(() => {
+                // autoplay OK -> masquer le contrôle
+                hideControl();
+                if(status) status.textContent = 'Vidéo de fond lancée automatiquement.';
+            }).catch((err) => {
+                // autoplay bloqué -> afficher le contrôle accessible
+                showControl();
+                if(status) status.textContent = 'Autoplay bloqué. Appuyez sur le bouton pour lancer la vidéo.';
+                console.log('Autoplay bloqué:', err);
+            });
+        } else {
+            // anciens navigateurs -> si la vidéo est en pause, montrer le contrôle
+            if(video.paused) showControl(); else hideControl();
+        }
+
+        // Au clic sur le bouton : activer le son et lancer la lecture
+        ctrl.addEventListener('click', function(){
+            try{ video.muted = false; }catch(e){}
+            const play2 = video.play();
+            if(play2 && play2.then){
+                play2.then(() => { hideControl(); if(status) status.textContent = 'Vidéo lancée.'; }).catch(e => { if(status) status.textContent = 'Impossible de lancer la vidéo.'; console.warn(e); });
+            } else {
+                hideControl();
+                if(status) status.textContent = 'Vidéo lancée.';
+            }
+        });
+
+        // Essayer de relancer la vidéo après la 1ère interaction utilisateur (scroll/click/keydown) pour améliorer probabilité d'autoplay
+        function tryAfterInteraction(){
+            const p2 = video.play();
+            if(p2 && p2.then) {
+                p2.then(() => { hideControl(); if(status) status.textContent = 'Vidéo lancée après interaction.'; }).catch(()=>{});
+            }
+            window.removeEventListener('click', tryAfterInteraction);
+            window.removeEventListener('touchstart', tryAfterInteraction);
+            window.removeEventListener('keydown', tryAfterInteraction);
+        }
+        window.addEventListener('click', tryAfterInteraction, { passive: true });
+        window.addEventListener('touchstart', tryAfterInteraction, { passive: true });
+        window.addEventListener('keydown', tryAfterInteraction, { passive: true });
+
+    })();
 </script>
 </body>
 </html>
